@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+	<nombre>Lenguaje de marcas y sistemas de gestion de informacion</nombre>
+	<ciclo>Desarrollo de aplicaciones multifplataforma</ciclo>
+	<horasalasemana unidad="horas">4</horasalasemana>
+	<caracter>Obligatorio</caracter>
+	<duracion>
+		<principio>15 de septiembre de 2010</principio>
+		<final>30 de junio de 2011</final>
+	</duracion>
+	<alumnos>
+		<alumno1>
+			<nombre>Ana Fernández Gutiérrez</nombre>
+			<DNI>16965696L</DNI>
+			<telf>789654321</telf>
+			<email>ana.fdezgtrrez@hotmail.com</email>
+			<faltas>Sin información</faltas>
+			<nota>Sin información</nota>
+			<direccion>
+				<calle>Calle el Percebe, 13</calle>
+				<ciudad>Santander</ciudad>
+				<codigopostal>39302</codigopostal>
+			</direccion>
+		</alumno1>
+		<alumno2>
+			<nombre>Pepito Grillo</nombre>
+			<DNI>98765432H</DNI>
+			<telf>656566555</telf>
+			<email>yhyh@yahoo.com</email>
+			<faltas>Sin faltas</faltas>
+			<nota>apto</nota>
+			<direccion>
+				<calle> Avd. El Pez, 5</calle>
+				<ciudad>Suances CP</ciudad>
+				<codigopostal>39401</codigopostal>
+			</direccion>
+		</alumno2>
+	</alumnos>
+</modulo>

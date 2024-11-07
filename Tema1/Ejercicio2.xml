@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agendadetelefonos>
+	<persona1>
+		<nombre>Mario</nombre>
+		<apellidos>Garcia Rodriguez</apellidos>
+		<direción>Plaza de la Noria, numero 7</direción>
+		<telefonos>
+			<fijo>856754321</fijo>
+			<movil>671234564</movil>
+			<teftrabajo>682458764</teftrabajo>
+		</telefonos>
+	</persona1>
+	<persona2>
+		<nombre>Paco</nombre>
+		<apellidos>Perez Nuñez</apellidos>
+		<direción>Avenida Diputación, 12</direción>
+		<telefonos>
+			<fijo>no tiene</fijo>
+			<movil>632459821</movil>
+			<teftrabajo>611755344</teftrabajo>
+		</telefonos>
+	</persona2>
+	<persona3>
+		<nombre>Francisco</nombre>
+		<apellidos>Cortes Reyes</apellidos>
+		<direción>Calle Larios, numero21</direción>
+		<telefonos>
+			<fijo>956743290</fijo>
+			<movil>623456789</movil>
+			<teftrabajo>no tiene</teftrabajo>
+		</telefonos>
+	</persona3>	
+</agendadetelefonos>
