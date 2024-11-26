@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada de datos</title>
+    <div class="contenedor">
+        <div class="box">
+            <h1>Entrada de datos</h1>
+    
+           </div>
+    </div>
+    <hr>
+</head>
+<style>
+    h1{
+        text-align: center;
+        margin-left: 30%;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    hr{
+        border: 2px solid;
+    }
+    .contenedor{
+    display: flex;
+    justify-content: center;
+    }
+    .box{
+        border: 3px solid rgb(6, 6, 6);
+        border-radius: 5%;
+        width: 30%;
+        margin: 10px;
+        background-color: #f15050;
+        padding-right: 10%;
+    
+    }
+    table{
+        border-collapse: collapse;
+        width: 40%;
+        height: 60%;
+        margin: auto;
+        font-size: 20px;
+    }
+    .formtext {
+        font-weight: bold;
+    }
+    .boton{
+        border-radius: 5%;
+        width: 20%;
+        font-size: 20px;
+        margin-right: 5%;
+    }
+    .boton1{
+        border-radius: 5%;
+        width: 20%;
+        font-size: 20px;
+    }
+    .nombre{
+        margin-left: 5%;
+    }
+    .direccion{
+        margin-left: 4.5%;
+    }
+    .telefono{
+        margin-left: 4.2%;
+    }
+    .edad{
+        margin-left: 9%;
+    }
+    .poblacion{
+        margin-left: 3.4%;
+    }
+   
+</style>
+<body>
+    <table align="center" border="3" cellpading="20">
+        <tr>
+            <td bgcolor="#f15050">
+                <form action="">
+                    <p class="formtext">
+                        <div class="box1">
+                        Nombre...... <input type="text" name="nombre" size="25" maxlength="40" placeholder="ingrese su nombre" class="nombre"> 
+                        <br>
+                        Dirección.... <input type="text" name="direcc" size="25" maxlength="30" placeholder="ingrese su dirección" class="direccion"> 
+                        <br>
+                        Teléfono...... <input type="text" name="tlf" size="25" maxlength="10" placeholder="ingrese su telefono" class="telefono">
+                        <br>
+                        Edad...... <input type="text" name="edad" size="25" maxlength="3" placeholder="ingrese su edad" class="edad">
+                        <br>
+                        Población..... <input type="text" name="pobla" size="20" maxlength="30" placeholder="ingrese su poblacion" class="poblacion">
+                        <br><br>
+                        Introduzca su clave de acceso: <input type="password" name="clave" size="25" maxlength="10" class="clave">
+                        <br><br>
+                        <div class="contenedor">
+                        <input type="radio" name="sexo" value="Masculino">Masculino
+                        <input type="radio" name="sexo" value="Femenino"> Femenino
+                        </div>
+                        <br>
+                        </div>
+                        <div class="contenedor">
+                        <input type="submit" value="Enviar" class="boton">
+                        <input type="submit" value="Cerrar" class="boton1" onclick="window.close();">
+                        </div>
+                    </p>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
