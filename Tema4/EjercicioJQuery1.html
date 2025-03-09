@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar y Ocultar Párrafos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        button { margin: 5px; padding: 10px; }
+        p { margin: 5px; padding: 5px; border: 1px solid #ccc; }
+        .caja {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(44, 173, 187);
+            text-align: center;
+            line-height: 100px;
+            margin-top: 20px;
+            border: 1px solid black;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Control de Párrafos</h1>
+    <button id="ocultarPares">Ocultar Impares</button>
+    <button id="ocultarImpares">Ocultar Pares</button>
+    <button id="mostrarPares">Mostrar Solo Impares</button>
+    <button id="mostrarImpares">Mostrar Solo Pares</button>
+    
+    <div>
+        <p>1º TEXTO</p>
+        <p>2º TEXTO</p>
+        <p>3º TEXTO</p>
+        <p>4º TEXTO</p>
+        <p>5º TEXTO</p>
+        <p>6º TEXTO</p>
+    </div>
+
+    <div class="caja">PINCHA AQUI</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#ocultarPares").click(function() {
+                $("p:even").hide();
+            });
+            
+            $("#ocultarImpares").click(function() {
+                $("p:odd").hide();
+            });
+            
+            $("#mostrarPares").click(function() {
+                $("p").hide();
+                $("p:even").show();
+            });
+            
+            $("#mostrarImpares").click(function() {
+                $("p").hide();
+                $("p:odd").show();
+            });
+
+            $(".caja").hover(
+                function() {
+                    $(this).css("background-color", "green");
+                },
+                function() {
+                    $(this).css("background-color", "lightblue");
+                }
+            );
+        });
+    </script>
+</body>
+</html>
