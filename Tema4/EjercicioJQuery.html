@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Área del Triángulo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .resultado { margin-top: 10px; font-weight: bold; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Cálculo del Área del Triángulo</h1>
+    <p>Introduce la base y la altura:</p>
+    <p>Base: <input type="text" name="base" class="base"></p>
+    <p>Altura: <input type="text" name="altura" class="altura"></p>
+    <button class="calcular">Calcular</button>
+    <div class="resultado"></div>
+
+    <script>
+        $(document).ready(function() {
+            $(".calcular").click(function() {
+                var base = parseFloat($(".base").val());
+                var altura = parseFloat($(".altura").val());
+                
+                if (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0) {
+                    $(".resultado").html("<p class='error'>Por favor, introduce valores numéricos válidos y mayores a 0.</p>");
+                } else {
+                    var resultado = 0.5 * base * altura;
+                    $(".resultado").html("<p>El área del triángulo es: " + resultado.toFixed(2) + "</p>");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
