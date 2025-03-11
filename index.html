@@ -1,134 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio5_HTML</title>
+    <title>David Cordero Carrasco - Lenguaje de Marcas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-h1{
-    text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    
+    /* Estilos generales */
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
-.logo{
+
+header {
+    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header h3 {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+}
+
+.logo {
     width: 100px;
-    display: flex;
-    margin-left: 1700px;
     position: absolute;
-    top: 10px;
-    margin-top: 10px;
-}
-h2{
-    text-align: center;
-    border: 2px solid; 
-    padding: 5px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
-}
-h3{
-    text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-}
-.box{
-    border: 2px solid;
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
+    top: 20px;
+    right: 20px;
 }
 
-.box2{
-    border: 2px solid rgb(9, 9, 9);
-    border-radius: 5%;
-    width: 10%;
-    margin: 20px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    margin-left: 850px;
-    padding-bottom: 40px;
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 30px, rgb(36, 106, 227) 200%);
-}
-.box2:hover{
-    transform: scale(1.10);
-    background-color: white;
-    color: black;
-}
-.box3{
-    border: 2px solid rgb(9, 9, 9);
-    border-radius: 5%;
-    width: 10%;
-    margin: 20px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    margin-left: 850px;
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 30px, rgb(36, 106, 227) 200%);
-}
-.box3:hover{
-    transform: scale(1.10);
-}
-.box4{
-    text-align: center;
-    border: 2px solid; 
-    padding: 5px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
+main {
+    padding: 20px;
 }
 
+.topic {
+    margin-bottom: 30px;
+}
+
+.topic h2 {
+    text-align: center;
+    border: 2px solid #000;
+    padding: 10px;
+    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
+    margin-bottom: 20px;
+}
+
+.exercise-box {
+    border: 2px solid #000;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.exercise-box:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+}
+
+.exercise-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.exercise-box ul li {
+    margin: 10px 0;
+}
+
+.exercise-box ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.exercise-box ul li a:hover {
+    color: #007BFF;
+}
+
+footer {
+    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
+    padding: 10px;
+    text-align: center;
+    border-top: 2px solid #000;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #007BFF;
+}
 </style>
 <body>
-    <body>
-        <header>
-        <div class="box">
-         <h1>David Cordero Carrasco</h1>
-         <h3>Lenguaje De Marcas 1 DAW <img class="logo" src="Tema2/David Cordero.png" alt=""></h3> 
-        </header>
+    <header>
+        <div class="header-box">
+            <h1>David Cordero Carrasco</h1>
+            <h3>Lenguaje De Marcas 1 DAW</h3>
+            <img class="logo" src="Tema2/David Cordero.png" alt="Logo">
         </div>
-        <article>
-         <h2>Tema 1 XML</h2>
-         <div class="box2">
-             <ul>
-                 <li><a href="Tema1/Ejercicio1.xml">Ejercicio 1.XML</a></li>
-                 <li><a href="Tema1/Ejercicio2.xml">Ejercicio 2.XML</a></li>
-                 <li><a href="Tema1/Ejercicio3.xml">Ejercicio 3.XML</a></li>
-             </ul>
-        </div>
-        </article>
-        <article>
-         <h2>Tema 2 HTML</h2>
-         <div class="box3">
-         <ul>
-             <li><a href="Tema2/Ejercicio1.html">Ejercicio1.HTML</a></li>
-             <li><a href="Tema2/Ejercicio2.html">Ejercicio2.HTML</a></li>
-             <li><a href="Tema2/Ejercicio3.html">Ejercicio3.HTML</a></li>
-             <li><a href="Tema2/Ejercicio4.html">Ejercicio4.HTML</a></li>
-             <li><a href="Tema2/Ejercicio5.html">Ejercicio5.HTML</a></li>
-             <li><a href="Tema2/Ejercicio6.html">Ejercicio6.HTML</a></li>
-         </ul>
-        </div> 
-        </article> 
-         <article>
-         <h2>Tema 3 HTML</h2>
-         <div class="box3">
-         <ul>
-             <li><a href="Tema3/Ejemplo1.html">Ejercicio1.CSS</a></li>
-             <li><a href="Tema3/EjemploBootStrap">Ejemplo.BootStrap</a></li>
-             <li><a href="Tema3/Ejercicio1BootStrap">Ejercicio1.BootStrap</a></li>
-         </ul>
-        </div> 
-        </article> 
-        <article>
-         <h2>Tema 4 JavaScript</h2>
-         <div class="box3">
-         <ul>
-             <li><a href="Tema4/Ejercicio1.js">Ejercicio1.JS</a></li>
-             <li><a href="Tema4/Ejercicio2.js">Ejercicio2.JS</a></li>
-             <li><a href="Tema4/EjercicioJQuery.html">EjercicioJQuery2</a></li>
-             <li><a href="Tema4/EjercicioJQuery1">EjercicioJQuery1</a></li>
-         </ul>
-        </div> 
-        </article> 
-        <footer>
-            <div class="box4">
-            <p>&copy; Página Web Realizada por David Cordero Carrasco</p>
-            <p> &#128187 Contacto: dcorcar2911@g.educaand.es</p> 
+    </header>
+
+    <main>
+        <section class="topic">
+            <h2>Tema 1: XML</h2>
+            <div class="exercise-box">
+                <ul>
+                    <li><a href="Tema1/Ejercicio1.xml">Ejercicio 1.XML</a></li>
+                    <li><a href="Tema1/Ejercicio2.xml">Ejercicio 2.XML</a></li>
+                    <li><a href="Tema1/Ejercicio3.xml">Ejercicio 3.XML</a></li>
+                </ul>
             </div>
-        </footer>
-    </body>
+        </section>
+
+        <section class="topic">
+            <h2>Tema 2: HTML</h2>
+            <div class="exercise-box">
+                <ul>
+                    <li><a href="Tema2/Ejercicio1.html">Ejercicio 1.HTML</a></li>
+                    <li><a href="Tema2/Ejercicio2.html">Ejercicio 2.HTML</a></li>
+                    <li><a href="Tema2/Ejercicio3.html">Ejercicio 3.HTML</a></li>
+                    <li><a href="Tema2/Ejercicio4.html">Ejercicio 4.HTML</a></li>
+                    <li><a href="Tema2/Ejercicio5.html">Ejercicio 5.HTML</a></li>
+                    <li><a href="Tema2/Ejercicio6.html">Ejercicio 6.HTML</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="topic">
+            <h2>Tema 3: CSS y Bootstrap</h2>
+            <div class="exercise-box">
+                <ul>
+                    <li><a href="Tema3/Ejemplo1.html">Ejercicio 1.CSS</a></li>
+                    <li><a href="Tema3/EjemploBootStrap">Ejemplo Bootstrap</a></li>
+                    <li><a href="Tema3/Ejercicio1BootStrap">Ejercicio 1.Bootstrap</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="topic">
+            <h2>Tema 4: JavaScript</h2>
+            <div class="exercise-box">
+                <ul>
+                    <li><a href="Tema4/Ejercicio1.js">Ejercicio 1.JS</a></li>
+                    <li><a href="Tema4/Ejercicio2.js">Ejercicio 2.JS</a></li>
+                    <li><a href="Tema4/EjercicioJQuery.html">Ejercicio JQuery 2</a></li>
+                    <li><a href="Tema4/EjercicioJQuery1">Ejercicio JQuery 1</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-box">
+            <p>&copy; Página Web Realizada por David Cordero Carrasco</p>
+            <p>📧 Contacto: <a href="mailto:dcorcar2911@g.educaand.es">dcorcar2911@g.educaand.es</a></p>
+        </div>
+    </footer>
 </body>
 </html>
