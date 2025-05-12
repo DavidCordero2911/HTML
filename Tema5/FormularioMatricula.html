@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Matrícula Flexible</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .checkbox-group {
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            margin-bottom: 8px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .price {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Matrícula Flexible</h1>
+    
+    <div class="form-container">
+        <div class="form-group">
+            <label for="horas">Horas semanales:</label>
+            <input type="number" id="horas" min="1" value="1">
+        </div>
+        
+        <div class="form-group">
+            <label>Materias:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="matematicas1" name="materias" value="Matemáticas I">
+                    <label for="matematicas1">Matemáticas I</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="historia" name="materias" value="Historia">
+                    <label for="historia">Historia</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="matematicas2" name="materias" value="Matemáticas II">
+                    <label for="matematicas2">Matemáticas II</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="fisica" name="materias" value="Física">
+                    <label for="fisica">Física</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="checkbox-item">
+                <input type="checkbox" id="antiguo" name="antiguo">
+                <label for="antiguo">Soy antiguo alumno (35% de descuento)</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="beca" name="beca">
+                <label for="beca">Tengo beca (20% del total)</label>
+            </div>
+        </div>
+        
+        <button onclick="calcularPrecio()">Calcular Precio</button>
+        
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularPrecio() {
+            // Obtener valores del formulario
+            const horas = parseInt(document.getElementById('horas').value);
+            const matematicas1 = document.getElementById('matematicas1').checked;
+            const matematicas2 = document.getElementById('matematicas2').checked;
+            const antiguo = document.getElementById('antiguo').checked;
+            const beca = document.getElementById('beca').checked;
+            
+            const resultadoDiv = document.getElementById('resultado');
+            
+            // Validar selección de materias
+            if (matematicas2 && !matematicas1) {
+                resultadoDiv.innerHTML = '<p class="error">Error: No puedes seleccionar Matemáticas II sin seleccionar Matemáticas I.</p>';
+                resultadoDiv.className = 'error';
+                resultadoDiv.style.display = 'block';
+                return;
+            }
+            
+            // Calcular precio base
+            let precioBase = horas * 20 * 4; // 20€/hora * 4 semanas
+            
+            // Aplicar descuento de antiguo alumno si corresponde
+            let precioFinal = antiguo ? precioBase * 0.65 : precioBase;
+            
+            // Calcular precio con beca si corresponde
+            let precioConBeca = beca ? precioFinal * 0.20 : precioFinal;
+            
+            // Mostrar resultados
+            let resultadoHTML = `
+                <p>Total sin descuentos: ${precioBase}€</p>
+                <p class="price">Total a pagar: ${precioFinal.toFixed(2)}€</p>
+            `;
+            
+            if (beca) {
+                resultadoHTML += `<p class="price">Total con beca (20%): ${precioConBeca.toFixed(2)}€</p>`;
+            }
+            
+            resultadoDiv.innerHTML = resultadoHTML;
+            resultadoDiv.className = 'success';
+            resultadoDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
