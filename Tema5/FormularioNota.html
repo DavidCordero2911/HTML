@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Notas</h1>
+    
+    <div class="form-group">
+        <label for="notaSinRestar">Nota sin restar fallos (0-10):</label>
+        <input type="number" id="notaSinRestar" min="0" max="10" step="0.01">
+    </div>
+    
+    <div class="form-group">
+        <label for="fallos">Número de preguntas falladas (0-27):</label>
+        <input type="number" id="fallos" min="0" max="27">
+    </div>
+    
+    <div class="form-group">
+        <label for="penalizacion">Opción de penalización:</label>
+        <select id="penalizacion">
+            <option value="1">1. Sin resta de fallos</option>
+            <option value="2">2. Cada fallo -0.1</option>
+            <option value="3">3. Cada fallo -0.2</option>
+            <option value="4" selected>4. Cada fallo -0.3</option>
+        </select>
+    </div>
+    
+    <button onclick="calcularNota()">Calcular Nota Real</button>
+    
+    <div id="resultado"></div>
+    
+    <script>
+        function calcularNota() {
+            // Obtener valores del formulario
+            const notaSinRestar = parseFloat(document.getElementById("notaSinRestar").value);
+            const fallos = parseInt(document.getElementById("fallos").value);
+            const opcionPenalizacion = document.getElementById("penalizacion").value;
+            
+            // Validar entradas
+            if (isNaN(notaSinRestar) || notaSinRestar < 0 || notaSinRestar > 10) {
+                alert("Nota inválida. Debe ser un número entre 0 y 10.");
+                return;
+            }
+            
+            if (isNaN(fallos) || fallos < 0 || fallos > 27) {
+                alert("Número de fallos inválido. Debe ser entre 0 y 27.");
+                return;
+            }
+            
+            // Calcular nota según opción seleccionada
+            let notaReal;
+            switch(opcionPenalizacion) {
+                case "1":
+                    notaReal = notaSinRestar; // Sin resta de fallos
+                    break;
+                case "2":
+                    notaReal = notaSinRestar - (fallos * 0.1);
+                    break;
+                case "3":
+                    notaReal = notaSinRestar - (fallos * 0.2);
+                    break;
+                case "4":
+                    notaReal = notaSinRestar - (fallos * 0.3); // Penalización original
+                    break;
+                default:
+                    notaReal = notaSinRestar;
+            }
+            
+            // Asegurar que la nota no sea negativa
+            notaReal = Math.max(0, notaReal);
+            
+            // Mostrar resultado
+            const resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = `
+                <h3>Resultado</h3>
+                <p><strong>Nota real:</strong> ${notaReal.toFixed(2)}</p>
+                <p><strong>Detalles:</strong></p>
+                <ul>
+                    <li>Nota sin restar fallos: ${notaSinRestar.toFixed(2)}</li>
+                    <li>Preguntas falladas: ${fallos}</li>
+                    <li>Penalización aplicada: ${
+                        opcionPenalizacion === "1" ? "Ninguna" : 
+                        opcionPenalizacion === "2" ? "-0.1 por fallo" :
+                        opcionPenalizacion === "3" ? "-0.2 por fallo" : "-0.3 por fallo"
+                    }</li>
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>
