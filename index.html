@@ -3,189 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Cordero Carrasco - Lenguaje de Marcas</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Lenguaje de Marcas - David Cordero Carrasco</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e6e6e6;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #4cc9f0, #4361ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.85;
+            color: #b8b8b8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .topic-card {
+            background: linear-gradient(145deg, #2d3748 0%, #1f2937 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: rgba(76, 201, 240, 0.3);
+        }
+        
+        .topic-header {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .exercises-list {
+            padding: 1.8rem;
+        }
+        
+        .exercise-item {
+            margin-bottom: 1.2rem;
+            padding: 1rem 1.2rem;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(31, 41, 55, 0.5) 100%);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .exercise-item:hover {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.2) 0%, rgba(31, 41, 55, 0.7) 100%);
+            border-left-color: #4361ee;
+            transform: translateX(8px);
+        }
+        
+        .exercise-item a {
+            text-decoration: none;
+            color: #e2e8f0;
+            font-weight: 500;
+            display: block;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        
+        .exercise-item a:hover {
+            color: #4cc9f0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #94a3b8;
+        }
+    </style>
 </head>
-<style>
-    /* Estilos generales */
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid #000;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-header h3 {
-    margin: 10px 0 0;
-    font-size: 1.2em;
-}
-
-.logo {
-    width: 100px;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
-
-main {
-    padding: 20px;
-}
-
-.topic {
-    margin-bottom: 30px;
-}
-
-.topic h2 {
-    text-align: center;
-    border: 2px solid #000;
-    padding: 10px;
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
-    margin-bottom: 20px;
-}
-
-.exercise-box {
-    border: 2px solid #000;
-    border-radius: 10px;
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 600px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.exercise-box:hover {
-    transform: scale(1.05);
-    background-color: #fff;
-}
-
-.exercise-box ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.exercise-box ul li {
-    margin: 10px 0;
-}
-
-.exercise-box ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-.exercise-box ul li a:hover {
-    color: #007BFF;
-}
-
-footer {
-    background: radial-gradient(circle, rgba(231, 234, 239, 0.914) 0%, rgb(36, 106, 227) 100%);
-    padding: 10px;
-    text-align: center;
-    border-top: 2px solid #000;
-    margin-top: 30px;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-footer a {
-    color: #333;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #007BFF;
-}
-</style>
 <body>
     <header>
-        <div class="header-box">
-            <h1>David Cordero Carrasco</h1>
-            <h3>Lenguaje De Marcas 1 DAW</h3>
-            <img class="logo" src="Tema2/David Cordero.png" alt="Logo">
-        </div>
+        <h1>Lenguaje de Marcas</h1>
+        <p class="subtitle">David Cordero Carrasco - 1º DAW</p>
     </header>
 
-    <main>
-        <section class="topic">
-            <h2>Tema 1: XML</h2>
-            <div class="exercise-box">
-                <ul>
-                    <li><a href="Tema1/Ejercicio1.xml">Ejercicio 1.XML</a></li>
-                    <li><a href="Tema1/Ejercicio2.xml">Ejercicio 2.XML</a></li>
-                    <li><a href="Tema1/Ejercicio3.xml">Ejercicio 3.XML</a></li>
-                </ul>
+    <div class="container">
+        <div class="topics-grid">
+            
+            <!-- TEMA 1 -->
+            <div class="topic-card">
+                <div class="topic-header">Tema 1: XML</div>
+                <div class="exercises-list">
+                    <div class="exercise-item"><a href="Tema1/Ejercicio1.xml" target="_blank">Ejercicio 1.XML</a></div>
+                    <div class="exercise-item"><a href="Tema1/Ejercicio2.xml" target="_blank">Ejercicio 2.XML</a></div>
+                    <div class="exercise-item"><a href="Tema1/Ejercicio3.xml" target="_blank">Ejercicio 3.XML</a></div>
+                </div>
             </div>
-        </section>
 
-        <section class="topic">
-            <h2>Tema 2: HTML</h2>
-            <div class="exercise-box">
-                <ul>
-                    <li><a href="Tema2/Ejercicio1.html">Ejercicio 1.HTML</a></li>
-                    <li><a href="Tema2/Ejercicio2.html">Ejercicio 2.HTML</a></li>
-                    <li><a href="Tema2/Ejercicio3.html">Ejercicio 3.HTML</a></li>
-                    <li><a href="Tema2/Ejercicio4.html">Ejercicio 4.HTML</a></li>
-                    <li><a href="Tema2/Ejercicio5.html">Ejercicio 5.HTML</a></li>
-                    <li><a href="Tema2/Ejercicio6.html">Ejercicio 6.HTML</a></li>
-                </ul>
+            <!-- TEMA 2 -->
+            <div class="topic-card">
+                <div class="topic-header">Tema 2: HTML</div>
+                <div class="exercises-list">
+                    <div class="exercise-item"><a href="Tema2/Ejercicio1.html" target="_blank">Ejercicio 1.HTML</a></div>
+                    <div class="exercise-item"><a href="Tema2/Ejercicio2.html" target="_blank">Ejercicio 2.HTML</a></div>
+                    <div class="exercise-item"><a href="Tema2/Ejercicio3.html" target="_blank">Ejercicio 3.HTML</a></div>
+                    <div class="exercise-item"><a href="Tema2/Ejercicio4.html" target="_blank">Ejercicio 4.HTML</a></div>
+                    <div class="exercise-item"><a href="Tema2/Ejercicio5.html" target="_blank">Ejercicio 5.HTML</a></div>
+                    <div class="exercise-item"><a href="Tema2/Ejercicio6.html" target="_blank">Ejercicio 6.HTML</a></div>
+                </div>
             </div>
-        </section>
 
-        <section class="topic">
-            <h2>Tema 3: CSS y Bootstrap</h2>
-            <div class="exercise-box">
-                <ul>
-                    <li><a href="Tema3/Ejemplo1.html">Ejercicio 1.CSS</a></li>
-                    <li><a href="Tema3/EjemploBootStrap">Ejemplo Bootstrap</a></li>
-                    <li><a href="Tema3/Ejercicio1BootStrap">Ejercicio 1.Bootstrap</a></li>
-                </ul>
+            <!-- TEMA 3 -->
+            <div class="topic-card">
+                <div class="topic-header">Tema 3: CSS y Bootstrap</div>
+                <div class="exercises-list">
+                    <div class="exercise-item"><a href="Tema3/Ejemplo1.html" target="_blank">Ejercicio 1.CSS</a></div>
+                    <div class="exercise-item"><a href="Tema3/EjemploBootStrap" target="_blank">Ejemplo Bootstrap</a></div>
+                    <div class="exercise-item"><a href="Tema3/Ejercicio1BootStrap" target="_blank">Ejercicio 1.Bootstrap</a></div>
+                </div>
             </div>
-        </section>
 
-        <section class="topic">
-            <h2>Tema 4: JavaScript</h2>
-            <div class="exercise-box">
-                <ul>
-                    <li><a href="Tema4/Ejercicio1.js">Ejercicio 1.JS</a></li>
-                    <li><a href="Tema4/Ejercicio2.js">Ejercicio 2.JS</a></li>
-                    <li><a href="Tema4/EjercicioJQuery.html">Ejercicio JQuery 2</a></li>
-                    <li><a href="Tema4/EjercicioJQuery1">Ejercicio JQuery 1</a></li>
-                </ul>
+            <!-- TEMA 4 -->
+            <div class="topic-card">
+                <div class="topic-header">Tema 4: JavaScript</div>
+                <div class="exercises-list">
+                    <div class="exercise-item"><a href="Tema4/Ejercicio1.js" target="_blank">Ejercicio 1.JS</a></div>
+                    <div class="exercise-item"><a href="Tema4/Ejercicio2.js" target="_blank">Ejercicio 2.JS</a></div>
+                    <div class="exercise-item"><a href="Tema4/EjercicioJQuery.html" target="_blank">Ejercicio JQuery 2</a></div>
+                    <div class="exercise-item"><a href="Tema4/EjercicioJQuery1" target="_blank">Ejercicio JQuery 1</a></div>
+                </div>
             </div>
-        </section>
-        <section class="topic">
-            <h2>Tema 5: Formularios </h2>
-            <div class="exercise-box">
-                <ul>
-                    <li><a href="Tema5/Formulario.html">FormularioEmpleados.HTML</a></li>
-                    <li><a href="Tema5/FormularioIA.html">FormularioIA.HTML</a></li>
-                    <li><a href="Tema5/FormularioMatricula.html">FormularioMatricula.HTML</a></li>
-                    <li><a href="Tema5/FormularioNota.html">FormularioNota.HTML</a></li>
-                </ul>
+
+            <!-- TEMA 5 -->
+            <div class="topic-card">
+                <div class="topic-header">Tema 5: Formularios</div>
+                <div class="exercises-list">
+                    <div class="exercise-item"><a href="Tema5/Formulario.html" target="_blank">FormularioEmpleados.HTML</a></div>
+                    <div class="exercise-item"><a href="Tema5/FormularioIA.html" target="_blank">FormularioIA.HTML</a></div>
+                    <div class="exercise-item"><a href="Tema5/FormularioMatricula.html" target="_blank">FormularioMatricula.HTML</a></div>
+                    <div class="exercise-item"><a href="Tema5/FormularioNota.html" target="_blank">FormularioNota.HTML</a></div>
+                </div>
             </div>
-        </section>
-    </main>
+
+        </div>
+    </div>
 
     <footer>
-        <div class="footer-box">
-            <p>&copy; Página Web Realizada por David Cordero Carrasco</p>
-            <p>📧 Contacto: <a href="mailto:dcorcar2911@g.educaand.es">dcorcar2911@g.educaand.es</a></p>
-        </div>
+        <p>Lenguaje de Marcas - Página creada por David Cordero Carrasco</p>
+        <p>📧 <a href="mailto:dcorcar2911@g.educaand.es" style="color:#4cc9f0;">dcorcar2911@g.educaand.es</a></p>
     </footer>
 </body>
 </html>
